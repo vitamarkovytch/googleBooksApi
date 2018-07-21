@@ -1,3 +1,16 @@
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+.mat-card-image:first-child{
+  margin-top: 0 !important;
+}
+
+.paddingZero{
+  padding: 0;
+}
+
+.marginZero{
+  margin: 0;
+}

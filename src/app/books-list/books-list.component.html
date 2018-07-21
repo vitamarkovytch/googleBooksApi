@@ -1,1 +1,39 @@
+<div class="container-fluid">
 
+  <div class="row justify-content-center">
+    <div class="col-md-5" *ngFor="let book of booksList">
+      <mat-card class="card container-fluid">
+        <div class="row marginZero">
+
+          <div class="col-sm-5 col-md-12 col-lg-5 paddingZero bookCover">
+            <img src="../../assets/images/bookcover.jpg" alt="Book's cover">
+          </div>
+
+          <div class="col-sm-5 col-md-12 col-lg-7 textColumn">
+            <!--<mat-card-content>-->
+              <h3 class="marginTop">
+                {{book.bookTitle}}
+              </h3>
+              <h6 class="marginTop">
+                {{'by '}}{{book.authorName}}
+              </h6>
+              <h6 class="marginTop">
+                {{'publish date: '}}{{book.publishDate}}
+              </h6>
+            <!--</mat-card-content>-->
+
+            <div class="row buttons ">
+              <div class="col-6 text-center paddingZero">
+              <button mat-raised-button class="marginEditBtn">Edit book</button>
+              </div>
+              <div class="col-6 text-center paddingZero">
+              <button mat-raised-button  class="marginRight">Delete book</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+</div>
