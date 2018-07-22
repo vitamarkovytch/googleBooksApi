@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
   <div class="row justify-content-center">
-    <div class="col-md-5" *ngFor="let book of booksList">
+    <div class="col-md-5" *ngFor="let book of booksList; let i = index" [attr.data-index]="i">
       <mat-card class="card container-fluid">
         <div class="row marginZero">
 
@@ -9,31 +9,38 @@
             <img src="../../assets/images/bookcover.jpg" alt="Book's cover">
           </div>
 
-          <div class="col-sm-5 col-md-12 col-lg-7 textColumn">
-            <!--<mat-card-content>-->
-              <h3 class="marginTop">
-                {{book.bookTitle}}
-              </h3>
-              <h6 class="marginTop">
-                {{'by '}}{{book.authorName}}
-              </h6>
-              <h6 class="marginTop">
-                {{'publish date: '}}{{book.publishDate}}
-              </h6>
-            <!--</mat-card-content>-->
-
-            <div class="row buttons ">
-              <div class="col-6 text-center paddingZero">
-              <button mat-raised-button class="marginEditBtn">Edit book</button>
+          <div class="col-sm-7 col-md-12 col-lg-7 textColumn">
+            <h3 class="marginTop20">
+              {{book.bookTitle | titlecase | englishLetters }}
+            </h3>
+            <h6 class="marginTop20">
+              {{'by '}}{{book.authorName}}
+            </h6>
+            <h6 class="marginTop20">
+              {{'publish date: '}}{{book.publishDate}}
+            </h6>
+            <p class="marginTop20 smallFont">
+              {{'id: '}}{{book.id}}
+            </p>
+            <div class="row buttons marginBottom10">
+              <div class="col-6 textCenter paddingZero">
+                <button mat-raised-button class="marginBottom10" (click)="openEditDialog(book, i)">
+                  Edit book
+                </button>
               </div>
-              <div class="col-6 text-center paddingZero">
-              <button mat-raised-button  class="marginRight">Delete book</button>
+              <div class="col-6 textCenter paddingZero">
+                <button mat-raised-button class="marginRight" (click)="openDeleteDialog(book, i)">Delete book</button>
               </div>
             </div>
+
           </div>
         </div>
       </mat-card>
     </div>
   </div>
-
+  <div class="right-down" matTooltip="Add new Event" [matTooltipPosition]="'before'">
+    <button mat-fab>
+      <i class="material-icons">add_circle</i>
+    </button>
+  </div>
 </div>
