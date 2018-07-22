@@ -48,9 +48,7 @@ export class BooksListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: BooksListModel) => {
-      if (typeof result === 'undefined') {
-        console.log('failed ' + result);
-      } else {
+      if (result) {
         this.booksList[i] = result;
       }
     });
@@ -60,6 +58,24 @@ export class BooksListComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '350px',
       data: {book}
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.booksList.splice(i, 1);
+      }
+    });
+  }
+
+  openAddNewBookDialog() {
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+      width: '350px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: BooksListModel) => {
+      if (result) {
+        this.booksList.unshift(result);
+      }
     });
   }
 }

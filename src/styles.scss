@@ -4,6 +4,7 @@
 
 $ligthGreenColor: #acddd4;
 $greyColor: #D5DBDB;
+$whiteColor: white;
 
 .mat-card-image:first-child{
   margin-top: 0 !important;
@@ -19,14 +20,7 @@ $greyColor: #D5DBDB;
 }
 
 .mat-fab.mat-accent{
-  background-color: white;
-}
-
-.right-down{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 15px;
+  background-color: $whiteColor;
 }
 
 .material-icons{
@@ -34,6 +28,20 @@ $greyColor: #D5DBDB;
   color: $ligthGreenColor;
   border: 1px solid #9ad6cb;
   border-radius: 50%;
+}
+/***************************/
+
+
+/*CUSTOM SCSS*/
+.displFlex{
+  display: flex;
+}
+
+.right-down{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 15px;
 }
 
 .paddingZero{
@@ -56,6 +64,10 @@ $greyColor: #D5DBDB;
   margin-bottom: 10px;
 }
 
+.marginBottom40{
+  margin-bottom: 40px;
+}
+
 .paddingTop10{
   padding-top: 10px;
 }
@@ -66,6 +78,30 @@ $greyColor: #D5DBDB;
 .textCenter{
   text-align: center;
 }
+
+.dialogHeader{
+  height: 70px;
+  background-color: $ligthGreenColor;
+  margin-top: -24px;
+  margin-right: -24px;
+  margin-left: -24px;
+  position: relative;
+}
+
+.whiteColor {
+  color: $whiteColor;
+  font-weight: bold;
+}
+
+.alignVertHoriz{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/***************************/
+
 
 
 /*MATERIAL FORM FIELD, INPUTS*/
@@ -105,3 +141,5 @@ $greyColor: #D5DBDB;
 .mat-form-field-infix{
   border-top: none;
 }
+/***************************/
+

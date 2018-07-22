@@ -1,3 +1,22 @@
-<p>
-  delete-dialog works!
-</p>
+<div class="dialogHeader marginBottom10">
+  <h4 class="whiteColor alignVertHoriz">Delete book</h4>
+</div>
+
+<h5 class="textCenter marginTop20">Are you sure want to delete this book?</h5>
+
+<h6 class="marginTop20">{{'"' + data['book'].bookTitle + '"'}}</h6>
+<p class="marginBottom40">{{'by ' + data['book'].authorName}}</p>
+
+<div class="row marginBottom10">
+  <div class="col-6 textCenter paddingZero">
+    <button mat-raised-button class="marginBottom10" (click)="closeDialog()">
+      Cancel
+    </button>
+  </div>
+
+  <div class="col-6 textCenter paddingZero">
+    <button mat-raised-button class="marginRight" (click)="deleteBook()">
+      Ok
+    </button>
+  </div>
+</div>

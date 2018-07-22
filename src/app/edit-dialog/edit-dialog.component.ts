@@ -12,6 +12,8 @@ import {DateValidatorDirective} from '../shared/directives/date-validator.direct
 })
 export class EditDialogComponent implements OnInit {
   form: FormGroup;
+  titleOfDialog: string;
+  isReadOnly: boolean;
 
   constructor(private formBuilder: FormBuilder,
               public dialogRef: MatDialogRef<EditDialogComponent>,
@@ -21,10 +23,15 @@ export class EditDialogComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     if (this.data) {
+      this.titleOfDialog = 'Edit a book';
+      this.isReadOnly = true;
       this.form.get('bookTitle').setValue(this.data['book'].bookTitle);
       this.form.get('authorName').setValue(this.data['book'].authorName);
       this.form.get('publishDate').setValue(this.data['book'].publishDate);
       this.form.get('id').setValue(this.data['book'].id);
+    } else {
+      this.titleOfDialog = 'Add new book';
+      this.isReadOnly = false;
     }
   }
 
@@ -34,7 +41,7 @@ export class EditDialogComponent implements OnInit {
       authorName: ['', Validators.required],
       publishDate: ['',
         Validators.compose([Validators.required, DateValidatorDirective.validDate])],
-      id: ['']
+      id: ['', Validators.required]
     });
   }
 

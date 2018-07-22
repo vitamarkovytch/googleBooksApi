@@ -1,79 +1,81 @@
-<div class="formCont">
-  <div class="dialogHeader marginBottom10">
-    <h4 class="whiteColor alignVertHoriz">Edit book</h4>
-  </div>
+<div class="dialogHeader marginBottom10">
+  <h4 class="whiteColor alignVertHoriz">{{titleOfDialog}}</h4>
+</div>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-    <p>
-      <mat-form-field appearance="legacy">
-        <div class="row displFlex">
-          <div class="col-3">
-            <span>Title: </span>
-          </div>
-          <div class="col-9 paddingLeft20">
-            <input matInput formControlName="bookTitle">
-          </div>
+  <p>
+    <mat-form-field appearance="legacy">
+      <div class="row displFlex">
+        <div class="col-3">
+          <span>Title: </span>
         </div>
-        <mat-error *ngIf="form.get('bookTitle').invalid">{{getErrorMessage('bookTitle')}}</mat-error>
-      </mat-form-field>
-    </p>
-
-    <p>
-      <mat-form-field appearance="legacy">
-        <div class="row displFlex">
-          <div class="col-3">
-            <span>Author: </span>
-          </div>
-          <div class="col-9 paddingLeft20">
-            <input matInput formControlName="authorName">
-          </div>
+        <div class="col-9 paddingLeft20">
+          <input matInput formControlName="bookTitle">
         </div>
-        <mat-error *ngIf="form.get('authorName').invalid">{{getErrorMessage('authorName')}}
-        </mat-error>
-      </mat-form-field>
-    </p>
-    <p>
-      <mat-form-field appearance="legacy">
-        <div class="row displFlex">
-          <div class="col-3">
-            <span>Publish date: </span>
-          </div>
-          <div class="col-9 paddingLeft20">
-            <input matInput formControlName="publishDate">
-          </div>
-        </div>
-        <mat-error *ngIf="form.get('publishDate').invalid">{{getErrorMessage('publishDate')}}
-        </mat-error>
-      </mat-form-field>
-    </p>
-
-    <p>
-      <mat-form-field appearance="legacy">
-        <div class="row displFlex">
-          <div class="col-3">
-            <span>Id: </span>
-          </div>
-          <div class="col-9 paddingLeft20">
-            <input matInput formControlName="id" readonly>
-          </div>
-        </div>
-      </mat-form-field>
-    </p>
-
-    <div class="row buttons marginBottom10">
-      <div class="col-6 textCenter paddingZero">
-        <button type="button" mat-raised-button class="marginBottom10" (click)="closeDialog()">
-          Cancel
-        </button>
       </div>
+      <mat-error *ngIf="form.get('bookTitle').invalid">{{getErrorMessage('bookTitle')}}</mat-error>
+    </mat-form-field>
+  </p>
 
-      <div class="col-6 textCenter paddingZero">
-        <button mat-raised-button class="marginRight" [disabled]="form.invalid">
-          Save
-        </button>
+  <p>
+    <mat-form-field appearance="legacy">
+      <div class="row displFlex">
+        <div class="col-3">
+          <span>Author/ authors: </span>
+        </div>
+        <div class="col-9 paddingLeft20">
+          <textarea matInput formControlName="authorName"></textarea>
+        </div>
       </div>
+      <mat-error *ngIf="form.get('authorName').invalid">{{getErrorMessage('authorName')}}
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <div class="row displFlex">
+        <div class="col-3">
+          <span>Publish date: </span>
+        </div>
+        <div class="col-9 paddingLeft20">
+          <input matInput formControlName="publishDate">
+        </div>
+      </div>
+      <mat-error *ngIf="form.get('publishDate').invalid">{{getErrorMessage('publishDate')}}
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="legacy">
+      <div class="row displFlex">
+        <div class="col-3">
+          <span>Id: </span>
+        </div>
+        <div class="col-9 paddingLeft20">
+          <input matInput formControlName="id" [readonly]="isReadOnly">
+        </div>
+      </div>
+      <mat-error *ngIf="form.get('id').invalid">{{getErrorMessage('id')}}
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <div class="row marginBottom10">
+    <div class="col-6 textCenter paddingZero">
+      <button type="button" mat-raised-button class="marginBottom10" (click)="closeDialog()">
+        Cancel
+      </button>
     </div>
 
-  </form>
-</div>
+    <div class="col-6 textCenter paddingZero">
+      <button mat-raised-button class="marginRight" [disabled]="form.invalid">
+        Save
+      </button>
+    </div>
+  </div>
+
+</form>
+
