@@ -17,7 +17,7 @@ export class ServerService {
   * inpublisher: - name of publisher of all books,
   * maxResults= - maximum books on page*/
 
-  baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=1+inpublisher:' +
+  baseUrl = 'https://www.googleapis.com/books/v1/volumes?q=d+inpublisher:' +
     'Doubleday+Group&maxResults=20';
 
   getBooksFromGoogle(): Observable<BooksListModel[]> {
