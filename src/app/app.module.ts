@@ -8,18 +8,22 @@ import { AppComponent } from './app.component';
 import { BooksListComponent } from './books-list/books-list.component';
 import {MaterialModule} from './shared/modules/material.module';
 import { EnglishLettersPipe } from './shared/pipes/english-letters.pipe';
-import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { EditAddBookDialogComponent } from './edit-add-book-dialog/edit-add-book-dialog.component';
 import { DateValidatorDirective } from './shared/directives/date-validator.directive';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
+import { TitleValidatorDirective } from './shared/directives/title-validator.directive';
+import { StringLengthPipe } from './shared/pipes/string-length.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksListComponent,
     EnglishLettersPipe,
-    EditDialogComponent,
+    EditAddBookDialogComponent,
     DateValidatorDirective,
     DeleteDialogComponent,
+    TitleValidatorDirective,
+    StringLengthPipe,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
     ReactiveFormsModule
   ],
   entryComponents: [
-    EditDialogComponent,
+    EditAddBookDialogComponent,
     DeleteDialogComponent
   ],
 
