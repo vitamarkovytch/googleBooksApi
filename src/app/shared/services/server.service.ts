@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BooksListModel} from '../app/shared/model/books-list.model';
+import {BooksListModel} from '../model/books-list.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 

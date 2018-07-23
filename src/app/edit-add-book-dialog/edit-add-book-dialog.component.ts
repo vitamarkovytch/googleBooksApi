@@ -4,19 +4,22 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 
 import {BooksListModel} from '../shared/model/books-list.model';
 import {DateValidatorDirective} from '../shared/directives/date-validator.directive';
+import {DataService} from '../shared/services/data.service';
+import {TitleValidatorDirective} from '../shared/directives/title-validator.directive';
 
 @Component({
-  selector: 'app-edit-dialog',
-  templateUrl: './edit-dialog.component.html',
-  styleUrls: ['./edit-dialog.component.scss']
+  selector: 'app-edit-add-book-dialog',
+  templateUrl: './edit-add-book-dialog.component.html',
+  styleUrls: ['./edit-add-book-dialog.component.scss']
 })
-export class EditDialogComponent implements OnInit {
+export class EditAddBookDialogComponent implements OnInit {
   form: FormGroup;
   titleOfDialog: string;
   isReadOnly: boolean;
 
   constructor(private formBuilder: FormBuilder,
-              public dialogRef: MatDialogRef<EditDialogComponent>,
+              private dataService: DataService,
+              public dialogRef: MatDialogRef<EditAddBookDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: BooksListModel) {
   }
 
@@ -37,7 +40,9 @@ export class EditDialogComponent implements OnInit {
 
   private createForm() {
     this.form = this.formBuilder.group({
-      bookTitle: ['', Validators.required],
+      bookTitle: ['',
+        Validators.compose([Validators.required,
+          TitleValidatorDirective.validTitle(this.dataService.getBooks())])],
       authorName: ['', Validators.required],
       publishDate: ['',
         Validators.compose([Validators.required, DateValidatorDirective.validDate])],
@@ -47,8 +52,9 @@ export class EditDialogComponent implements OnInit {
 
   getErrorMessage(string) {
     return this.form.get(string).hasError('required') ? 'This field is mandatory' :
-      this.form.get(string).hasError ? 'The date should be on YYYY-MM-DD format' :
-        '';
+      this.form.get(string).hasError('date') ? 'The date should be on YYYY-MM-DD format' :
+        this.form.get(string).hasError('invalidTitle') ? 'This Title of book is already exists' :
+          '';
   }
 
   closeDialog() {

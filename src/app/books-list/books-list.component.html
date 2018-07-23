@@ -9,12 +9,12 @@
             <img src="../../assets/images/bookcover.jpg" alt="Book's cover">
           </div>
 
-          <div class="col-sm-7 col-md-12 col-lg-7 textColumn">
-            <h3 class="marginTop20">
+          <div class="col-sm-7 col-md-12 col-lg-7 textColumn paddingRightZero">
+            <h3 class="marginTop10">
               {{book.bookTitle | titlecase | englishLetters }}
             </h3>
             <h6 class="marginTop20">
-              {{'by '}}{{book.authorName}}
+              {{'by '}}{{book.authorName | stringLength}}
             </h6>
             <h6 class="marginTop20">
               {{'publish date: '}}{{book.publishDate}}
