@@ -78,8 +78,18 @@ $whiteColor: white;
 .paddingLeft20{
   padding-left: 20px;
 }
+
+.padding24{
+  padding: 24px;
+}
 .textCenter{
   text-align: center;
+}
+
+.containerDialogs{
+  overflow-y: auto;
+  position: relative;
+  max-height: 90vh;
 }
 
 .dialogHeader{
@@ -101,6 +111,8 @@ $whiteColor: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 50%;
+  text-align: center;
 }
 
 /***************************/
@@ -143,6 +155,10 @@ $whiteColor: white;
 
 .mat-form-field-infix{
   border-top: none;
+}
+
+.mat-dialog-container{
+  padding: 0 !important;
 }
 /***************************/
 
