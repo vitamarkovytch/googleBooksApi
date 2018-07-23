@@ -10,12 +10,13 @@ import {TitleValidatorDirective} from '../shared/directives/title-validator.dire
 @Component({
   selector: 'app-edit-add-book-dialog',
   templateUrl: './edit-add-book-dialog.component.html',
-  styleUrls: ['./edit-add-book-dialog.component.scss']
 })
 export class EditAddBookDialogComponent implements OnInit {
   form: FormGroup;
   titleOfDialog: string;
   isReadOnly: boolean;
+  defaultPictureLink = '../../assets/images/bookcover.jpg';
+  book: BooksListModel = null;
 
   constructor(private formBuilder: FormBuilder,
               private dataService: DataService,
@@ -32,6 +33,8 @@ export class EditAddBookDialogComponent implements OnInit {
       this.form.get('authorName').setValue(this.data['book'].authorName);
       this.form.get('publishDate').setValue(this.data['book'].publishDate);
       this.form.get('id').setValue(this.data['book'].id);
+      this.form.get('picture').setValue(this.data['book'].picture);
+
     } else {
       this.titleOfDialog = 'Add new book';
       this.isReadOnly = false;
@@ -39,21 +42,26 @@ export class EditAddBookDialogComponent implements OnInit {
   }
 
   private createForm() {
+    if (this.data) {
+      this.book =  this.data['book'];
+    }
     this.form = this.formBuilder.group({
       bookTitle: ['',
         Validators.compose([Validators.required,
-          TitleValidatorDirective.validTitle(this.dataService.getBooks())])],
+          TitleValidatorDirective.validTitle(this.dataService.getBooks(), this.book)])],
       authorName: ['', Validators.required],
       publishDate: ['',
         Validators.compose([Validators.required, DateValidatorDirective.validDate])],
-      id: ['', Validators.required]
+      id: ['', Validators.required],
+      picture: [this.defaultPictureLink]
     });
   }
 
   getErrorMessage(string) {
     return this.form.get(string).hasError('required') ? 'This field is mandatory' :
       this.form.get(string).hasError('date') ? 'The date should be on YYYY-MM-DD format' :
-        this.form.get(string).hasError('invalidTitle') ? 'This Title of book is already exists' :
+        this.form.get(string).hasError('invalidTitle') ? 'This Title of book is already ' +
+          'exists' :
           '';
   }
 

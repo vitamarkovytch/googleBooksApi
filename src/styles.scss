@@ -1,38 +1,13 @@
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'materialButtons';
+@import 'materialFormFieldsDialogsCardsError';
+@import 'margingsPaddings';
 
 $ligthGreenColor: #acddd4;
-$greyColor: #D5DBDB;
 $whiteColor: white;
 
-.mat-card-image:first-child{
-  margin-top: 0 !important;
-}
-
-/*MATERIAL BUTTONS*/
-.mat-raised-button{
-  background-color: $ligthGreenColor;
-}
-
-.mat-fab .mat-button-wrapper{
-  padding: 0 !important;
-}
-
-.mat-fab.mat-accent{
-  background-color: $whiteColor;
-}
-
-.material-icons{
-  font-size: 55px;
-  color: $ligthGreenColor;
-  border: 1px solid #9ad6cb;
-  border-radius: 50%;
-}
-/***************************/
-
-
-/*CUSTOM SCSS*/
 .displFlex{
   display: flex;
 }
@@ -44,42 +19,19 @@ $whiteColor: white;
   margin: 15px;
 }
 
-.paddingZero{
-  padding: 0;
-}
-
-.paddingRightZero{
-  padding-right: 0;
-}
-
-.marginZero{
-  margin: 0;
-}
-
-.marginTop20{
-  margin-top: 20px;
-}
-.marginTop10{
-  margin-top: 10px;
-}
-
-.marginBottom10{
-  margin-bottom: 10px;
-}
-
-.marginBottom40{
-  margin-bottom: 40px;
-}
-
-.paddingTop10{
-  padding-top: 10px;
-}
-
-.paddingLeft20{
-  padding-left: 20px;
-}
 .textCenter{
   text-align: center;
+}
+
+.containerDialogs{
+  overflow-y: auto;
+  position: relative;
+  max-height: 90vh;
+}
+
+.containerBooks{
+  background-color: #fafafa;
+  min-height: 100vh;
 }
 
 .dialogHeader{
@@ -93,6 +45,9 @@ $whiteColor: white;
 
 .whiteColor {
   color: $whiteColor;
+}
+
+.fontWeightBold, .whiteColor {
   font-weight: bold;
 }
 
@@ -101,48 +56,7 @@ $whiteColor: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-/***************************/
-
-
-
-/*MATERIAL FORM FIELD, INPUTS*/
-.mat-form-field-underline{
-  right: 0;
-  width: 70% !important;
-}
-.mat-error{
+  width: 100%;
   text-align: center;
 }
-
-.mat-form-field{
-  display: initial !important;
-}
-
-.mat-form-field-appearance-legacy .mat-form-field-underline{
-  bottom: 1.55em !important;
-}
-
-.mat-form-field-appearance-legacy .mat-form-field-underline{
-  background-color: $greyColor;
-}
-
-.mat-form-field.mat-focused .mat-form-field-label{
-  color: $greyColor;
-}
-
-.mat-form-field.mat-focused .mat-form-field-ripple{
-  background-color: $greyColor;
-}
-
-.mat-checkbox-checked.mat-accent .mat-checkbox-background,
-.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{
-  background-color: $greyColor;
-}
-
-.mat-form-field-infix{
-  border-top: none;
-}
-/***************************/
 
