@@ -1,0 +1,62 @@
+@import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'materialButtons';
+@import 'materialFormFieldsDialogsCardsError';
+@import 'margingsPaddings';
+
+$ligthGreenColor: #acddd4;
+$whiteColor: white;
+
+.displFlex{
+  display: flex;
+}
+
+.right-down{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 15px;
+}
+
+.textCenter{
+  text-align: center;
+}
+
+.containerDialogs{
+  overflow-y: auto;
+  position: relative;
+  max-height: 90vh;
+}
+
+.containerBooks{
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+.dialogHeader{
+  height: 70px;
+  background-color: $ligthGreenColor;
+  margin-top: -24px;
+  margin-right: -24px;
+  margin-left: -24px;
+  position: relative;
+}
+
+.whiteColor {
+  color: $whiteColor;
+}
+
+.fontWeightBold, .whiteColor {
+  font-weight: bold;
+}
+
+.alignVertHoriz{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+

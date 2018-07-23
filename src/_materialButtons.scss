@@ -1,0 +1,21 @@
+$ligthGreenColor: #acddd4;
+$whiteColor: white;
+
+.mat-raised-button{
+  background-color: $ligthGreenColor;
+}
+
+.mat-fab .mat-button-wrapper{
+  padding: 0 !important;
+}
+
+.mat-fab.mat-accent{
+  background-color: $whiteColor;
+}
+
+.material-icons{
+  font-size: 55px;
+  color: $ligthGreenColor;
+  border: 1px solid #9ad6cb;
+  border-radius: 50%;
+}
