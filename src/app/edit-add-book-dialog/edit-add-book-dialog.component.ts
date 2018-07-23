@@ -16,6 +16,7 @@ export class EditAddBookDialogComponent implements OnInit {
   form: FormGroup;
   titleOfDialog: string;
   isReadOnly: boolean;
+  pictureLink = '../../assets/images/bookcover.jpg';
 
   constructor(private formBuilder: FormBuilder,
               private dataService: DataService,
@@ -46,7 +47,8 @@ export class EditAddBookDialogComponent implements OnInit {
       authorName: ['', Validators.required],
       publishDate: ['',
         Validators.compose([Validators.required, DateValidatorDirective.validDate])],
-      id: ['', Validators.required]
+      id: ['', Validators.required],
+      picture: [this.pictureLink]
     });
   }
 

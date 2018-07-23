@@ -14,6 +14,7 @@ import {DataService} from '../shared/services/data.service';
 })
 export class BooksListComponent implements OnInit {
   booksList: BooksListModel [] = [];
+  pictureLink = '../../assets/images/bookcover.jpg';
 
   constructor(private server: ServerService,
               private dataService: DataService,
@@ -34,8 +35,12 @@ export class BooksListComponent implements OnInit {
             book['volumeInfo']['authors'],
             book['volumeInfo']['publishedDate'],
             book['volumeInfo']['title'],
+            book['volumeInfo']['imageLinks'] ?
+              book['volumeInfo']['imageLinks']['thumbnail'] :
+              this.pictureLink
           );
         });
+
         this.dataService.saveBooks(this.booksList);
       },
       error => {

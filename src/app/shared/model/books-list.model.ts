@@ -3,5 +3,6 @@ export class BooksListModel {
     public id: number,
     public authorName: string [],
     public publishDate: string,
-    public bookTitle: string) {}
+    public bookTitle: string,
+    public picture: string) {}
 }
