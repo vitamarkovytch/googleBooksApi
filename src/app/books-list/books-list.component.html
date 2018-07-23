@@ -1,5 +1,10 @@
 <div class="container-fluid">
 
+  <app-progress-bar *ngIf="notLoaded"></app-progress-bar>
+  <h5 *ngIf="message.text" class="alert alert-{{message.type}} alignVertHoriz">
+    {{message.text}}
+  </h5>
+
   <div class="row justify-content-center">
     <div class="col-md-5" *ngFor="let book of booksList; let i = index" [attr.data-index]="i">
       <mat-card class="card container-fluid">
@@ -38,8 +43,9 @@
       </mat-card>
     </div>
   </div>
+
   <div class="right-down" matTooltip="Add new Event" [matTooltipPosition]="'before'">
-    <button mat-fab (click)="openAddNewBookDialog()">
+    <button mat-fab (click)="openAddNewBookDialog()" *ngIf="!notLoaded">
       <i class="material-icons">add_circle</i>
     </button>
   </div>

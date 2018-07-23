@@ -10,7 +10,6 @@ import {TitleValidatorDirective} from '../shared/directives/title-validator.dire
 @Component({
   selector: 'app-edit-add-book-dialog',
   templateUrl: './edit-add-book-dialog.component.html',
-  styleUrls: ['./edit-add-book-dialog.component.scss']
 })
 export class EditAddBookDialogComponent implements OnInit {
   form: FormGroup;

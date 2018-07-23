@@ -13,6 +13,7 @@ import { DateValidatorDirective } from './shared/directives/date-validator.direc
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { TitleValidatorDirective } from './shared/directives/title-validator.directive';
 import { StringLengthPipe } from './shared/pipes/string-length.pipe';
+import { ProgressBarComponent } from './books-list/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { StringLengthPipe } from './shared/pipes/string-length.pipe';
     DeleteDialogComponent,
     TitleValidatorDirective,
     StringLengthPipe,
+    ProgressBarComponent,
   ],
   imports: [
     BrowserModule,

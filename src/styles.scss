@@ -92,6 +92,11 @@ $whiteColor: white;
   max-height: 90vh;
 }
 
+.containerBooks{
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
 .dialogHeader{
   height: 70px;
   background-color: $ligthGreenColor;
@@ -103,6 +108,9 @@ $whiteColor: white;
 
 .whiteColor {
   color: $whiteColor;
+}
+
+.fontWeightBold, .whiteColor {
   font-weight: bold;
 }
 
@@ -111,7 +119,7 @@ $whiteColor: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 100%;
   text-align: center;
 }
 

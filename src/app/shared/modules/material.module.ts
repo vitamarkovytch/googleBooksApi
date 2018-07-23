@@ -24,7 +24,6 @@ import {
   MatSidenavModule,
   MatSnackBarModule,
   MatChipsModule,
-  MatSnackBar,
   MatProgressSpinnerModule,
 } from '@angular/material';
 
